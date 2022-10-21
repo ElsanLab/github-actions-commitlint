@@ -18,6 +18,7 @@ try {
     pull_number: number,
   });
 
+  console.log("COMMITS COUNT", commits.length);
   console.log("COMMITS", commits);
 } catch (error) {
   setFailed(error.message);
