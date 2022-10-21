@@ -21,6 +21,7 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
+    "@commitlint/config-conventional": "^17.1.0",
     "@commitlint/lint": "^17.1.0",
     "@commitlint/load": "^17.1.2"
   }
