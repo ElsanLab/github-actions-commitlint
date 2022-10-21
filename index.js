@@ -3,6 +3,7 @@ import { context as eventContext, getOctokit } from "@actions/github";
 
 import load from "@commitlint/load";
 import lint from "@commitlint/lint";
+import * as typescript from "typescript";
 
 try {
   console.log("Checking execution context...");
