@@ -31,8 +31,8 @@ try {
     pull_number: number,
   });
 
-  console.log("COMMITS COUNT", commits.length);
-  console.log("COMMITS", commits);
+  let messages = commits.map((c) => c.commit.message);
+  console.log("COMMIT MESSAGES", messages);
 } catch (error) {
   (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(error.message);
 }

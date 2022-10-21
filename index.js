@@ -18,8 +18,8 @@ try {
     pull_number: number,
   });
 
-  console.log("COMMITS COUNT", commits.length);
-  console.log("COMMITS", commits);
+  let messages = commits.map((c) => c.commit.message);
+  console.log("COMMIT MESSAGES", messages);
 } catch (error) {
   setFailed(error.message);
 }
