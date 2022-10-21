@@ -1,6 +1,9 @@
 import { getInput, setFailed } from "@actions/core";
 import { context as eventContext, getOctokit } from "@actions/github";
 
+import load from "@commitlint/load";
+import lint from "@commitlint/lint";
+
 try {
   console.log("Checking execution context...");
   if (
@@ -20,6 +23,25 @@ try {
 
   let messages = commits.map((c) => c.commit.message);
   console.log("COMMIT MESSAGES", messages);
+
+  const config = await load({ extends: ["@commitlint/config-conventional"] });
+
+  const opts = {
+    parserOpts: config.parserPreset?.parserOpts ?? {},
+    plugins: config.plugins ?? {},
+    ignores: config.ignores ?? [],
+    defaultIgnores:
+      config.defaultIgnores != null ? config.defaultIgnores : true,
+  };
+
+  const lintedCommits = await Promise.all(
+    commits.map(async (commit) => ({
+      lintResult: await lint(commit.message, config.rules, opts),
+      hash: commit.hash,
+    }))
+  );
+
+  console.log("LINTED COMMITS", lintedCommits);
 } catch (error) {
   setFailed(error.message);
 }
