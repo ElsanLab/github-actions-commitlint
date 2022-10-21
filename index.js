@@ -34,14 +34,17 @@ try {
       config.defaultIgnores != null ? config.defaultIgnores : true,
   };
 
-  const lintedCommits = await Promise.all(
-    commits.map(async (commit) => ({
-      lintResult: await lint(commit.message, config.rules, opts),
-      hash: commit.hash,
-    }))
-  );
+  const results = [];
+  for (let message of messages) {
+    const lintResult = await lint(message, config.rules, opts);
 
-  console.log("LINTED COMMITS", lintedCommits);
+    results.push({
+      lintResult,
+      hash: commit.hash,
+    });
+  }
+
+  console.log("LINTED COMMITS", results);
 } catch (error) {
   setFailed(error.message);
 }
