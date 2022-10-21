@@ -31,6 +31,7 @@ try {
     pull_number: number,
   });
 
+  console.log("COMMITS COUNT", commits.length);
   console.log("COMMITS", commits);
 } catch (error) {
   (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed)(error.message);
