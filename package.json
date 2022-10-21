@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build index.js",
+    "build": "ncc build index.js -m",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,7 +23,6 @@
     "@actions/github": "^5.1.1",
     "@commitlint/config-conventional": "^17.1.0",
     "@commitlint/lint": "^17.1.0",
-    "@commitlint/load": "^17.1.2",
-    "typescript": "^4.8.4"
+    "@commitlint/load": "^17.1.2"
   }
 }
