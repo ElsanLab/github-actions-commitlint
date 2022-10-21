@@ -1,5 +1,9 @@
 name: "Commit Lint"
 description: "Checks the format of the commit message"
+inputs:
+  token:
+    required: true
+    description: "Defines the token to use to execute the git API requests with, uses `env.GITHUB_TOKEN` by default"
 runs:
   using: "node16"
   main: "dist/index.js"
