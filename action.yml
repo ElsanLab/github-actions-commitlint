@@ -1,0 +1,5 @@
+name: "Commit Lint"
+description: "Checks the format of the commit message"
+runs:
+  using: "node16"
+  main: "dist/index.js"
