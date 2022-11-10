@@ -25,6 +25,7 @@ try {
   console.log("COMMIT MESSAGES", messages);
 
   const config = await load({ extends: ["@commitlint/config-conventional"] });
+  console.log("config loaded", config);
 
   const opts = {
     parserOpts: config.parserPreset?.parserOpts ?? {},
@@ -36,7 +37,11 @@ try {
 
   const results = [];
   for (let message of messages) {
+    console.log("start linting", message);
+
     const lintResult = await lint(message, config.rules, opts);
+
+    console.log("linted", lintResult);
 
     results.push({
       lintResult,
