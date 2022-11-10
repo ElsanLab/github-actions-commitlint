@@ -24,8 +24,7 @@ try {
   let messages = commits.map((c) => c.commit.message);
   console.log("COMMIT MESSAGES", messages);
 
-  //const config = await load({ extends: ["@commitlint/config-conventional"] });
-  const config = await load();
+  const config = await load({ extends: ["@commitlint/config-conventional"] });
   console.log("config loaded", config);
 
   const opts = {

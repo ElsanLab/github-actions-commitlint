@@ -24,5 +24,8 @@
     "@commitlint/config-conventional": "^17.1.0",
     "@commitlint/lint": "^17.1.0",
     "@commitlint/load": "^17.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
   }
 }
